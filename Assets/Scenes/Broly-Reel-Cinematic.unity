@@ -5725,7 +5725,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scenarySprites: []
-  parallaxSpeed: 1.2
+  parallaxSpeed: 1.4
   reference: {fileID: 1139195036}
 --- !u!1 &779160480
 GameObject:
@@ -15599,7 +15599,7 @@ Transform:
   m_GameObject: {fileID: 1097769981}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -24.34, y: 2.38, z: 22}
+  m_LocalPosition: {x: -24.34, y: 2.38, z: 20}
   m_LocalScale: {x: 0.90000004, y: 0.90000004, z: 1.1250001}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -15946,7 +15946,7 @@ Transform:
   m_GameObject: {fileID: 1170009554}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -22.53, y: 5.276, z: 23}
+  m_LocalPosition: {x: -22.53, y: 5.276, z: 21}
   m_LocalScale: {x: 0.90000004, y: 0.90000004, z: 1.1250001}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -16896,6 +16896,17 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 5393882069655424242, guid: a82faf1687a1824499274835198ded18, type: 3}
   m_PrefabInstance: {fileID: 1943504538}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1599405729 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 640319036659692998, guid: a82faf1687a1824499274835198ded18, type: 3}
+  m_PrefabInstance: {fileID: 1943504538}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dca0c6da1709dac498bf07a63e246f07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1671299105
 GameObject:
   m_ObjectHideFlags: 0
@@ -16978,7 +16989,7 @@ Transform:
   m_GameObject: {fileID: 1671299105}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -19.12, y: 3.07, z: 26}
+  m_LocalPosition: {x: -19.12, y: 3.07, z: 30}
   m_LocalScale: {x: 0.90000004, y: 0.90000004, z: 1.1250001}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -17034,13 +17045,13 @@ MonoBehaviour:
   - snowMaker: {fileID: 2128021023}
     speed: 0.8
     initialNoise: {x: 0, y: 0, z: 0}
-  broly: {fileID: 0}
-  multiplier: 2
-  magnitude: 0
-  shakeTime: 0
-  shakeX: 0
-  minShakeY: 0
-  maxShakeY: 0
+  broly: {fileID: 1599405729}
+  multiplier: 1
+  magnitude: 2
+  shakeTime: 0.5
+  shakeX: 0.5
+  minShakeY: -2
+  maxShakeY: 2
 --- !u!4 &1710854716
 Transform:
   m_ObjectHideFlags: 0

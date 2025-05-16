@@ -13,9 +13,9 @@ public class Broly : MonoBehaviour
     [SerializeField] private float time;
     
     [SerializeField] private Shadow shadow;
+    [SerializeField] private CameraShake cameraShake;
 
-
-    public Action<bool> OnForceStart;
+    public Action OnForceStart;
 
     private void Awake()
     {
@@ -50,13 +50,18 @@ public class Broly : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             _animationHandler.Play(BrolyState.Force01Ground);
-            StartCoroutine(CameraShake.Instance.Shake());
+            StartCoroutine(cameraShake.Shake());
             return;
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             _animationHandler.Play(BrolyState.Force02Ground);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            CinematicController.Instance.PlayCinematic(0); 
         }
     }
 
@@ -91,19 +96,8 @@ public class Broly : MonoBehaviour
         shadow.ResetSize();
     }
 
-
-
     public void PlayAnimationSound(int position)
     {
         AudioController.Instance.PlaySound(position);
-    }
-
-    public void StartForce01()
-    {
-        OnForceStart?.Invoke(true);
-    }
-    public void FinishForce01()
-    {
-        OnForceStart?.Invoke(false);
     }
 }

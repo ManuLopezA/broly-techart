@@ -22,6 +22,6 @@ public class ParallaxElement : MonoBehaviour
 
     public void UpdatePosition(Vector2 position)
     {
-        transform.position += new Vector3(0, position.y * speed, 0) * Time.deltaTime;
+        transform.position += new Vector3(0, position.y * speed, 0);
     }
 }

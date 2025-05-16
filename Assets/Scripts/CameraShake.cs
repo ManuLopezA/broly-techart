@@ -1,27 +1,26 @@
+using System;
 using System.Collections;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class CameraShake : MonoBehaviour
 {
     [SerializeField] private ParallaxController parallaxController;
-    public static CameraShake Instance {get; private set;}
     [SerializeField] private float shakeX;
     [SerializeField] private float shakeY;
     
     [Header("Camera Shake Atributes")]
     [SerializeField] private float duration;
     [SerializeField] private float magnitude;
-    
-    private void Awake()
-    {
-        Instance = this;
-    }
-
+    [SerializeField] private float shakeStartTime;
+  
     public IEnumerator Shake()
     {
         parallaxController.EnableCameraShake();
         
-        yield return new WaitForSeconds(0.4f);
+        // waiting anticipation animation before explosion
+        yield return new WaitForSeconds(shakeStartTime);
+        
         Vector3 originalPos = transform.localPosition;
 
         float elapsed = 0f;

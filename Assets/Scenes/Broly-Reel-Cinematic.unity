@@ -11097,6 +11097,8 @@ PlayableDirector:
   m_SceneBindings:
   - key: {fileID: 3707205303921339465, guid: a106dbb0b880ecd41b01f0fb8d31e759, type: 2}
     value: {fileID: 142445643}
+  - key: {fileID: -3654457587950032871, guid: a106dbb0b880ecd41b01f0fb8d31e759, type: 2}
+    value: {fileID: 1601831622}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &839441958
@@ -17464,6 +17466,67 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 5393882069655424242, guid: a82faf1687a1824499274835198ded18, type: 3}
   m_PrefabInstance: {fileID: 1943504538}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1601831616 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 251064626482004012, guid: a82faf1687a1824499274835198ded18, type: 3}
+  m_PrefabInstance: {fileID: 1943504538}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1601831620 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 640319036659692998, guid: a82faf1687a1824499274835198ded18, type: 3}
+  m_PrefabInstance: {fileID: 1943504538}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601831616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dca0c6da1709dac498bf07a63e246f07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1601831622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601831616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: ee03638050e64fc44bde56deef699a96, type: 2}
+    - {fileID: 11400000, guid: 8a7fc65658073c248916b7dda73e7c19, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1601831620}
+          m_TargetAssemblyTypeName: Broly, Assembly-CSharp
+          m_MethodName: EnablePlayerControl
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1601831620}
+          m_TargetAssemblyTypeName: Broly, Assembly-CSharp
+          m_MethodName: QuitGame
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1671299105
 GameObject:
   m_ObjectHideFlags: 0
@@ -17870,6 +17933,8 @@ PlayableDirector:
     value: {fileID: 142445643}
   - key: {fileID: -49390093460279624, guid: abc4ca700a86f06478739412026fb536, type: 2}
     value: {fileID: 739420052}
+  - key: {fileID: -8467003593340999668, guid: abc4ca700a86f06478739412026fb536, type: 2}
+    value: {fileID: 1601831622}
   m_ExposedReferences:
     m_References: []
 --- !u!1001 &1943504538
@@ -17990,7 +18055,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8932066249646374441, guid: a82faf1687a1824499274835198ded18, type: 3}
       insertIndex: -1
       addedObject: {fileID: 519420032}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 251064626482004012, guid: a82faf1687a1824499274835198ded18, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1601831622}
   m_SourcePrefab: {fileID: 100100000, guid: a82faf1687a1824499274835198ded18, type: 3}
 --- !u!1 &2007818996
 GameObject:

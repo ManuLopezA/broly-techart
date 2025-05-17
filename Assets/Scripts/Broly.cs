@@ -14,12 +14,11 @@ public class Broly : MonoBehaviour
     
     [SerializeField] private Shadow shadow;
     [SerializeField] private CameraShake cameraShake;
-
-    public Action OnForceStart;
-
+    
     private void Awake()
     {
         _animationHandler = GetComponent<AnimationHandler>();
+        enabled = false;
     }
 
     private void Update()
@@ -29,6 +28,9 @@ public class Broly : MonoBehaviour
 
     private void InputGetKeys()
     {
+        if (_animationHandler.IsOnAnimation) return;
+        
+        // start or finish flight
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             if (isGrounded)
@@ -37,16 +39,26 @@ public class Broly : MonoBehaviour
             {
                 StartCoroutine(LandSequence());
             }
-
             return;
         }
+        
+        // get out of the program
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            CinematicController.Instance.PlayCinematic(0); 
+        }
 
+        
+        if (!isGrounded) return;
+        
+        // say no-no
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             _animationHandler.Play(BrolyState.SayingNoNo);
             return;
         }
 
+        // force explosion 
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             _animationHandler.Play(BrolyState.Force01Ground);
@@ -54,19 +66,16 @@ public class Broly : MonoBehaviour
             return;
         }
 
+        // force concentration
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             _animationHandler.Play(BrolyState.Force02Ground);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            CinematicController.Instance.PlayCinematic(0); 
         }
     }
 
     private IEnumerator FlySequence()
     {
+        isGrounded = false;
         _animationHandler.Play(BrolyState.FlyStart);
         float elapsed = 0f;
         while (elapsed < time)
@@ -76,12 +85,15 @@ public class Broly : MonoBehaviour
             shadow.ShadowResize(true);
             yield return null;
         }
-
-        isGrounded = false;
+        // we call the event by script because the animation stops before the player stops moving
+        _animationHandler.OnAnimationEnd();
     }
 
     private IEnumerator LandSequence()
     {
+        // we call the event by script because we move the player before the animation starts
+        _animationHandler.OnAnimationStart();
+        
         float elapsed = 0f;
         while (elapsed < time)
         {
@@ -90,7 +102,7 @@ public class Broly : MonoBehaviour
             shadow.ShadowResize(false);
             yield return null;
         }
-
+        
         _animationHandler.Play(BrolyState.FlyEnd);
         isGrounded = true;
         shadow.ResetSize();
@@ -99,5 +111,15 @@ public class Broly : MonoBehaviour
     public void PlayAnimationSound(int position)
     {
         AudioController.Instance.PlaySound(position);
+    }
+    
+    public void EnablePlayerControl()
+    {
+        enabled = true;
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }

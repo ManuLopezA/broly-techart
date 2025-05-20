@@ -21,7 +21,7 @@ public class AnimationSet : ScriptableObject
                 return entry.clip;
         }
 
-        Debug.LogWarning($"No se ha encontrado animación para: {type}");
+        Debug.LogWarning($"Can't find animation for: {type}");
         return null;
     }
 }

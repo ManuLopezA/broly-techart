@@ -9,17 +9,17 @@ public enum CloudLayer
 }
 public class CloudController : MonoBehaviour
 {
-    [SerializeField] private float _baseSpeed = 1f;
-    [SerializeField] private float _speedMultiplier = 0.3f;
-    [SerializeField] private float _randomOffset = 0.15f; 
+    [SerializeField] private float baseSpeed = 1f;
+    [SerializeField] private float speedMultiplier = 0.3f;
+    [SerializeField] private float randomOffset = 0.15f; 
 
-    public float SpeedMultiplier => _speedMultiplier;
+    public float SpeedMultiplier => speedMultiplier;
 
     public float SetSpeed(CloudLayer layer)
     {
         float layerMultiplier = GetLayerMultiplier(layer);
-        float offset = Random.Range(-_randomOffset, _randomOffset);
-        return (_baseSpeed + offset) * layerMultiplier;
+        float offset = Random.Range(-randomOffset, randomOffset);
+        return (baseSpeed + offset) * layerMultiplier;
     }
 
     private float GetLayerMultiplier(CloudLayer layer)
